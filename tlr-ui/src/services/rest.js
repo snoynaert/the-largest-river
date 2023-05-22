@@ -7,7 +7,7 @@ export default async function getJSON(baseURL, options) {
     } else if (process.env.NODE_ENV === "development") {
       root = `http://${process.env.REACT_APP_HOST || "localhost"}:8080`;
     } else if (process.env.NODE_ENV === "production") {
-      root = window.location.hostname;
+      root = window.location.origin;
     }
     let url = new URL(`${root}${baseURL}`);
     if (options) {
@@ -38,7 +38,7 @@ export async function postJSON(baseURL = "", data = {}, options) {
     } else if (process.env.NODE_ENV === "development") {
       root = `http://${process.env.REACT_APP_HOST || "localhost"}:8080`;
     } else if (process.env.NODE_ENV === "production") {
-      root = window.location.hostname;
+      root = window.location.origin;
     }
     let url = new URL(`${root}${baseURL}`);
     if (options) {
